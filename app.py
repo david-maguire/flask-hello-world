@@ -15,6 +15,7 @@ def testing():
 
 @app.route('/db_create')
 def creating():
+    conn = psycopg2.connect("postgresql://render_lab_postgres_user:M1Hf6Q7wVnEjyobgriSdqZLR0uz9l4bc@dpg-dbpmkmhsrm7s73atppsg-a/render_lab_postgres")
     cur = conn.cursor()
     cur.execute('''
         CREATE TABLE IF NOT EXISTS Basketball(
@@ -28,4 +29,3 @@ def creating():
     conn.commit()
     conn.close()
     return "Table 'Basketball' successfully created"
-    
